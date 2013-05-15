@@ -11,11 +11,16 @@ $arComponentParameters = array(
 	),
 	// Список параметров
 	"PARAMETERS" => array(
-		"IBLOCK_BOOKS" => array(
-			"PARENT" => "BASE",
-			"NAME" => GetMessage("IBLOCK_BOOKS"),
-			"TYPE" => "STRING"
-		),
+        "IBLOCK_BOOKS" => array(
+            "PARENT" => "BASE",
+            "NAME" => GetMessage("IBLOCK_BOOKS"),
+            "TYPE" => "STRING"
+        ),
+        "IBLOCK_MOTION" => array(
+            "PARENT" => "BASE",
+            "NAME" => GetMessage("IBLOCK_MOTION"),
+            "TYPE" => "STRING"
+        ),
         "ID_ELEMENT" => array(
             "PARENT" => "BASE",
             "NAME" => GetMessage("ID_ELEMENT"),
@@ -24,16 +29,6 @@ $arComponentParameters = array(
         "LIST_URL" => array(
             "PARENT" => "BASE",
             "NAME" => GetMessage("LIST_URL"),
-            "TYPE" => "STRING"
-        ),
-        "MOTION_URL" => array(
-            "PARENT" => "BASE",
-            "NAME" => GetMessage("MOTION_URL"),
-            "TYPE" => "STRING"
-        ),
-        "EDIT_URL" => array(
-            "PARENT" => "BASE",
-            "NAME" => GetMessage("EDIT_URL"),
             "TYPE" => "STRING"
         ),
 		"CACHE_TIME"  =>  Array("DEFAULT"=>36000000),

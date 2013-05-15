@@ -35,8 +35,8 @@ $arTabs[] = array(
 );
 $arTabs[] = array(
 		"id" => "tab_2",
-		"name" => "Движение книг",
-		"title" => "Движение книг",
+		"name" => "Перемещения книги",
+		"title" => "Перемещения книги",
 		"icon" => "",
 		//"type" => "custom", "value" => $gridTmp, "colspan" => true,
         "fields" => array(

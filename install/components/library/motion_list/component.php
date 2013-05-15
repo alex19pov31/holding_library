@@ -10,7 +10,6 @@ if(!CModule::IncludeModule("library")){
 // $arParams - Массив параметров компонента
 // $arResult - Массив значений для шаблона
 
-
 $arResult["PERMISSION"] = CIBlock::GetPermission($arParams["IBLOCK_MOTION"]);
 if($arResult["PERMISSION"] == "D"){
     ShowMessage(Array("MESSAGE" => "Доступ запрещен!", "TYPE" => "ERROR"));
@@ -21,12 +20,13 @@ $arResult["GRID_ID"] = "motion_grid";
 
     ob_start();
     $GLOBALS["APPLICATION"]->IncludeComponent('bitrix:intranet.user.selector', '', array(
-                   'INPUT_NAME' => "PROPERTY_RESPONSIBLE",
+                   'INPUT_NAME' => "PROPERTY_USERID",
+                   //'CONTROL_ID' => "PROPERTY_RESPONSIBLE_ID",
                    //'INPUT_NAME_STRING' => "RESPONSIBLE_STRING",
                    //'INPUT_NAME_SUSPICIOUS' => "RESPONSIBLE_NAME",
                    //'TEXTAREA_MIN_HEIGHT' => 30,
                    //'TEXTAREA_MAX_HEIGHT' => 60,
-                   //'INPUT_VALUE_STRING' => implode("\n", $arUsers),
+                   'INPUT_VALUE_STRING' => implode("\n", $arUsers),
                    'EXTERNAL' => 'A',
                    'MULTIPLE' => 'N'
                    //'SOCNET_GROUP_ID' => ($arParams["TASK_TYPE"] == "group" ? $arParams["OWNER_ID"] : "")
@@ -159,7 +159,7 @@ while($aRes = $db_res->GetNext())
 {
     $rsUser = CUser::GetByID($aRes["PROPERTY_USERID_VALUE"]); 
     $arUser = $rsUser->Fetch();
-    $aRes["PROPERTY_USERID_VALUE"] = $arUser["NAME"]." ".$arUser["LAST_NAME"];
+    //$aRes["PROPERTY_USERID_VALUE"] = $arUser["NAME"]." ".$arUser["LAST_NAME"];
 
     $rsBook = CIBlockElement::GetByID($aRes["PROPERTY_BOOKID_VALUE"]);
     $arBook = $rsBook->Fetch();
@@ -169,6 +169,7 @@ while($aRes = $db_res->GetNext())
 	$aCols = array(
             "ID" => '<a href="'.$APPLICATION->GetCurPage().'?ID='.$aRes["ID"].'">'.$aRes["ID"].'</a>',
             "NAME_BOOK" => '<a href="'.$arParams["BOOK_URL"].'?ID='.$arBook["ID"].'">'.$aRes["NAME_BOOK"].'</a>',
+            "PROPERTY_USERID_VALUE" => '<a href="/company/personal/user/'.$aRes["PROPERTY_USERID_VALUE"].'/">'.$arUser["NAME"]." ".$arUser["LAST_NAME"].'</a>',
 	);
 
 	//это определения для меню действий над строкой
