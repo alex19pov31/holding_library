@@ -1,0 +1,1 @@
+<?$MESS['ERROR_CLASS'] = '';$MESS['ERROR_NOT_INITIALIZED'] = '';$MESS['NOT_DEFINED'] = ''; // Do not edit this?>
